@@ -178,4 +178,9 @@ class TestSearch < Test::Unit::TestCase
       search(:users, "gender:\"\" AND age:35")
     }
   end
+  
+  def test_OR_group
+    nodes = search(:users, "id:(mike OR tom)")
+    assert nodes.length == 2
+  end
 end
