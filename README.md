@@ -80,11 +80,14 @@ Sample supported queries are:
     
     search(:users, "children:tom NOT gender:female AND age:42")
     
-### special case: 'chef_environment:_default'
+### special case: 'chef_environment' queries:
 
-Searching within the '_default' environment is also supported
+Searching by values in the "chef_environment" field will raise an RuntimeError
+immediately, mostly because right now there is now way for the chef-solo run to
+know about the environment it is running in. We strongly suggest using an
+"environment" attribute, so queries will endup looking like:
 
-    search(:users, "age:35 AND chef_environment:_default")
+    search(:users, "age:42 and environment:testing")
 
 ## Running tests
 
