@@ -166,4 +166,16 @@ class TestSearch < Test::Unit::TestCase
     nodes = search(:users, "username:spee*")
     assert nodes.length == 1
   end
+  
+  def test_empty_field_value
+    assert_raise(RuntimeError) {
+      search(:users, "gender:#{nil} AND age:35")
+    }
+    assert_raise(RuntimeError) {
+      search(:users, "gender: AND age:35")
+    }
+    assert_raise(RuntimeError) {
+      search(:users, "gender:\"\" AND age:35")
+    }
+  end
 end
