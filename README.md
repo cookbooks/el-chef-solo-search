@@ -13,9 +13,8 @@ Please see *Supported queries* for a list of query types which are supported.
 ## Installation
 
 In order to use this extension, create a (dummy-) cookbook and add a directory
-called *libraries*. Next copy *libraries/search.rb* and *libraries/data_bags.rb*
-to the newly created directory. Now you have to make sure chef-solo knows about
-data bags, therefor add
+called *libraries*. Next copy *libraries/search.rb* to the newly created directory.
+Now you have to make sure chef-solo knows about data bags, therefor add
 
     data_bag_path "<node_work_path>/data_bags"
     

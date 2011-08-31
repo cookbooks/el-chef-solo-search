@@ -25,9 +25,6 @@ require "chef"
 Chef::Config[:solo] = true
 Chef::Config[:data_bag_path] = "tests/data/data_bags"
 
-# load the extension
-require "data_bags.rb"
-
 def data_bag_item(bag, item)
   # wrapper around creating a new Recipe instance and calling data_bag on it
   node = Chef::Node.new()
@@ -41,7 +38,7 @@ class TestDataBags < Test::Unit::TestCase
   def test_data_bag
     item = data_bag_item("users", "mike")
     assert_equal item["age"], 42
-    assert_equal item[:age], 42
+    assert_equal item[:age], nil    #upstream code for chef-solo does not use mashes
   end
   
 end
