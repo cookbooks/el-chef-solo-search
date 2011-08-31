@@ -183,4 +183,11 @@ class TestSearch < Test::Unit::TestCase
     nodes = search(:users, "id:(mike OR tom)")
     assert nodes.length == 2
   end
+  
+  def test_nested_fieldnames
+    nodes = search(:users, "address_street:wilhelmsstrasse")
+    assert nodes.length == 1
+    nodes = search(:users, "address_street_floor:1")
+    assert nodes.length == 1
+  end
 end

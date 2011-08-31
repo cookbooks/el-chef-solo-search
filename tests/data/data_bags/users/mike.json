@@ -4,5 +4,10 @@
     "age": 42,
     "gender": "male",
     "married": true,
-    "children": ["tom", "jerry"]
+    "children": ["tom", "jerry"],
+    "address": {
+        "street": {
+            "floor": 1
+        }
+    }
 }

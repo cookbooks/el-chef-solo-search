@@ -3,5 +3,8 @@
     "username": "tom von homme",
     "age": 13,
     "gender": "male",
-    "married": false
+    "married": false,
+    "address": {
+      "street": "wilhelmsstrasse"
+    }
 }
