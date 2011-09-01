@@ -1,14 +1,13 @@
 # chef-solo-search
 
-Chef-solo-search is a cookbook library to add data bags and search powers
-to chef-solo. Thanks for the initial idea and code goes to Brian Akins
-[http://lists.opscode.com/sympa/arc/chef/2011-02/msg00000.html]()
+Chef-solo-search is a cookbook library that adds data bag search powers
+to Chef Solo. Data bag support was added to Chef Solo by Chef 0.10.4
 Please see *Supported queries* for a list of query types which are supported.
 
 ## Requirements
 
     * ruby >= 1.8
-    * ruby-chef >= 0.10
+    * ruby-chef >= 0.10.4
     
 ## Installation
 
