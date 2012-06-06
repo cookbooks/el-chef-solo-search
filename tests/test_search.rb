@@ -36,7 +36,7 @@ def search(*args, &block)
   return Chef::Recipe.new("test_cookbook", "test_recipe", run_context).search(*args, &block)
 end
 
-class TestSearch < Test::Unit::TestCase
+class TestSearchDB < Test::Unit::TestCase
   
   def test_search_all
     # try to get data of all users
@@ -183,5 +183,28 @@ class TestSearch < Test::Unit::TestCase
     assert nodes.length == 1
     nodes = search(:users, "address_street_floor:1")
     assert nodes.length == 1
+  end
+end
+
+class TestSearchNode < Test::Unit::TestCase
+  def test_list_nodes
+    nodes = search(:node)
+    assert_equal Chef::Node, nodes.first.class
+    assert_equal 2, nodes.length
+  end
+
+  def test_search_node_with_wide_filter
+    nodes = search(:node, "role:test_server AND chef_environment:default")
+    assert_equal 2, nodes.length
+  end
+
+  def test_search_node_with_narrow_filter
+    nodes = search(:node, "role:beta_server")
+    assert_equal 1, nodes.length
+  end
+
+  def test_search_node_with_attr_filter
+    nodes = search(:node, "hostname:beta.example.com")
+    assert_equal 1, nodes.length
   end
 end
