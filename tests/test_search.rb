@@ -152,12 +152,6 @@ class TestSearch < Test::Unit::TestCase
     assert nodes.length == 1
   end
   
-  def test_chef_environment
-    assert_raise(RuntimeError) {
-        search(:users, "username:speedy AND chef_environment:_default")
-    }
-  end
-  
   def test_wildcards
     nodes = search(:users, "gender:f??ale")
     assert nodes.length == 1
